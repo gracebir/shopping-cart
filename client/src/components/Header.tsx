@@ -2,7 +2,7 @@ import { ShoppingCartIcon } from '@heroicons/react/outline';
 
 function Header() {
     return (
-        <header>
+        <header className='sticky top-0 z-50'>
             <div className='flex justify-around md:justify-around items-center bg-shopping_blue p-1 flex-grow py-2'>
                 <div className='mt-2 flex flex-grow sm:flex-grow-0'>
                     <h1 className='text-white text-2xl font-bold cursor-pointer'>ShopRITE.</h1>
