@@ -8,6 +8,10 @@ module.exports = {
         shopping_blue:{
           light: "#232F3E",
           DEFAULT: "#131921"
+        },
+        shopping_dark:{
+          dark: "#000917",
+          focus: "#00112b"
         }
       }
     },
