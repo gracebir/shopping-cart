@@ -1,6 +1,10 @@
 import { ShoppingCartIcon } from '@heroicons/react/outline';
+import { useSelector } from 'react-redux';
+import { selectItems } from '../slices/basketSlice';
+
 
 function Header() {
+    const items = useSelector(selectItems);
     return (
         <header className='sticky top-0 z-50'>
             <div className='flex justify-around md:justify-around items-center bg-shopping_blue p-1 flex-grow py-2'>
@@ -13,7 +17,7 @@ function Header() {
                         <p className='font-extrabold md:text-sm'>Account & List</p>
                     </div>
                     <div className='relative link flex items-center'>
-                        <span className='absolute top-0 right-0 md:right-10 h-4 w-4 bg-yellow-400 rounded-full text-black font-bold text-center'>0</span>
+                        <span className='absolute top-0 right-0 md:right-10 h-4 w-4 bg-yellow-400 rounded-full text-black font-bold text-center'>{items.length}</span>
                         <ShoppingCartIcon className='h-10' />
                     </div>
                 </div>

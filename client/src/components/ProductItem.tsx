@@ -1,7 +1,23 @@
 import { IProduct } from "../interfaces/product.interface"
 import Image from 'next/image';
+import {useDispatch} from 'react-redux';
+import { addToBasket } from "../slices/basketSlice";
 
 function ProductItem({id, title, description,price,category,image}:IProduct) {
+    const dispatch = useDispatch();
+
+    const addItemToBasket = ():void =>{
+        const product = {
+            id,
+            title,
+            price,
+            description,
+            category,
+            image
+        };
+        dispatch(addToBasket(product));
+    }
+
     return (
         <div className='relative flex flex-col m-5 bg-white z-30 p-10'>
             <p className='absolute top-2 right-2 text-xs italic text-gray-400'>{category}</p>
@@ -16,7 +32,7 @@ function ProductItem({id, title, description,price,category,image}:IProduct) {
             <div className='mb-5'>
                 <p>${price}</p>
             </div>
-            <button className="mt-auto button">Add to Basket</button>
+            <button onClick={addItemToBasket} className="mt-auto button">Add to Basket</button>
         </div>
     )
 }
